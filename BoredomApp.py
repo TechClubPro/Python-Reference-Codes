@@ -1,6 +1,6 @@
 import random
 import time
-
+import webbrowser as wb
 
 print("Welcome to Boredom App")
 
@@ -22,6 +22,14 @@ ans={1:["ans1","ans2","ans3","ans4","ans5","ans6","ans7","ans8"],
 # set2=["Que 1","Que 2","Que 3","Que 4","Que 5","Que 6","Que 7","Que 8"]
 # set1ans=["ans1","ans2","ans3","ans4","ans5","ans6","ans7","ans8"]
 # set2ans=["ans1","ans2","ans3","ans4","ans5","ans6","ans7","ans8"]
+
+calnum=50
+lolimit=0
+uplimit=100
+step=0
+user_response = 0
+
+numset=0
 
 while resume=="y":
     print("We have different options for You:")
@@ -51,7 +59,9 @@ while resume=="y":
         print("Welcome to Game module")
         print("Choose your option:")
         print("1. Suggestions on interesting Games")
-        print("2. Play game with me")
+        print("2. Take up a Quiz")
+        print("3. Guess the Number Game")
+        print("4. Memory Game")
         
         gameChoice=int(input("Enter your choice: "))
         
@@ -85,8 +95,72 @@ while resume=="y":
             else:
                 print("Do you sleep in History class!!")
                 
+        elif gameChoice==3:
+            print("Select a number in your mind, select greater than, lesser than or equal symbols for the questions asked")
+
+            while user_response!= "=":
+                step=step+1
+                
+                calnum = int((uplimit+lolimit)/2)
+                user_response = input("is your num :"+ str (calnum)+ " ")
+                
+                if user_response == '<' :
+                    uplimit = calnum
+                    
+                if user_response == '>' :
+                    lolimit = calnum
+                    
+            print("your num is " + str(step) + " steps")
             
+        elif gameChoice==4:
             
+            numset=numset+1
+            score=0
+            numlist={1:[9,300,12,30,80,70,87,96,89,10],
+                     2:[1,2,4,5,7,4,2,1,3,5],
+                     3:[],
+                     4:[],
+                     5:[],}
+            
+            userlist=[0,0,0,0,0,0,0,0,0,0]
+            
+            print("memorize the sequence")
+            time.sleep(1)
+            
+            for num in range (10):
+                
+                print(numlist[numset][num])
+                time.sleep(1)
+                
+            for e in range(50):
+                print("\\"*e)
+               
+            for j in range(10):
+                userlist[j]=int(input("number"+str(j+1)+":"))
+                if userlist[j]==numlist[numset][j]:
+                   score=score+1
+    #score
+            if score<=3:
+                print("you need to eat soaked almoonds")
+            elif score<=5:
+                print("you need practice but still good")
+            elif score<=8:
+                print("good job,nice memory")
+            else:
+                print("very good memory,ithink you eat soaked almods everyday")
+                  
+            print("your score is :"+str(score))
+            
+            time.sleep(3)
+        
+                            
+    elif choice==3:     
+            print("categories")
+            category=int(input("Enter category:"))
+            if category==1:
+                wb.open("https://youtu.be/uN1EJJvJYYM")
+            elif category==2:
+                wb.open_new_tab("https://github.com/TechClubPro/Python-Reference-Codes/blob/master/BoredomApp.py")
         
         
         
